@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
     container: {
@@ -11,9 +11,7 @@ export default StyleSheet.create({
     header: {
         justifyContent: 'center',
         alignItems: 'center',
-        position: 'absolute',
-        top: 100,
+        top: 7,
         marginHorizontal: 25,
     }
-
 })

@@ -1,28 +1,22 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-
 import { MaterialCommunityIcons, MaterialIcons  } from '@expo/vector-icons';
-
-
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 
-
-import register from './src/pages/register';
-import login from './src/pages/login';
-import dashboard from './src/pages/dashboard';
-import favorite from './src/pages/favorite'
-
+import register from './src/screens/register';
+import login from './src/screens/login';
+import dashboard from './src/screens/dashboard';
+import favorite from './src/screens/favorite';
+import settings from './src/screens/settings';
 
 const Stack = createStackNavigator()
-
 const Tab = createMaterialBottomTabNavigator()
-
 
 export default function App() {
   return (
    <NavigationContainer>
-     <Stack.Navigator initialRouteName={"Dashboard"}>
+     <Stack.Navigator initialRouteName={"Login"}>
        <Stack.Screen
         name={'Register'}
         component={register}
@@ -39,6 +33,19 @@ export default function App() {
         name={'Dashboard'}
         component={MyTabs}
         options={{ headerShown: false}}
+      />
+
+      <Stack.Screen
+        name={'settings'}
+        component={settings}
+        options={{ 
+          headerShown: true, 
+          title: 'Settings',
+          headerStyle: {
+            backgroundColor: '#08173B',
+          },
+          headerTintColor: '#fff'
+        }}
       />
      </Stack.Navigator>
    </NavigationContainer>
@@ -67,15 +74,16 @@ function MyTabs() {
       />
 
       <Tab.Screen 
-      name="Favorite" 
-      component={favorite} 
-      options={{
-        tabBarLabel: 'Favorites',
-        tabBarColor: '#fff',
-        tabBarIcon: ({ color,  focused }) => (
-          <MaterialIcons name={ focused ? "favorite" : "favorite-border"} size={24} color={color} />
-        )
-      }} />
+        name="Favorite" 
+        component={favorite} 
+        options={{
+          tabBarLabel: 'Favorites',
+          tabBarColor: '#fff',
+          tabBarIcon: ({ color,  focused }) => (
+            <MaterialIcons name={ focused ? "favorite" : "favorite-border"} size={24} color={color} />
+          )
+        }}
+      />
     </Tab.Navigator>
   );
 }

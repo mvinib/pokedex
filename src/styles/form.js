@@ -1,9 +1,10 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
     form:{
-        marginTop: 130,
-        width: '80%'
+        marginTop: 50,
+        marginBottom: 10,
+        width: '80%',
     },
     input:{
         color: '#fff',
@@ -22,7 +23,7 @@ export default StyleSheet.create({
         justifyContent: 'center',
         alignSelf: 'center',
         marginVertical: 10,
-        borderRadius: 10
+        borderRadius: 10,
     }
     
 
